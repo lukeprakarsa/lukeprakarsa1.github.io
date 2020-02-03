@@ -11,6 +11,20 @@ let changeState = function (state) {
         timer = setInterval(function () {
             document.getElementById('countdown').innerHTML = countdownNumber;
             countdownNumber = countdownNumber - 1;
+            console.log('countdownNumber='+countdownNumber);
+
+            if (countdownNumber == 5) {
+                document.getElementById('nervous').className = 'nervous show';
+            } else {
+                document.getElementById('nervous').className = 'nervous';
+            }
+
+            if (countdownNumber == 3) {
+                document.getElementById('cant-wait').className = 'cant-wait show';
+            } else {
+                document.getElementById('cant-wait').className = 'cant-wait';
+            }
+            
             if (countdownNumber < 0) {
                 changeState(3);
             }
@@ -25,6 +39,6 @@ let changeState = function (state) {
                 changeState(5);
             }
         }, 2000);
-    };
+    }
 }
 
